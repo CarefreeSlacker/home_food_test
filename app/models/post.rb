@@ -2,6 +2,9 @@ class Post < ActiveRecord::Base
 	validates :name , length: { minimum: 5 }
 	validates :text, length: { minimum: 1, maximum: 300 }
 
+	has_many :category_posts
+	has_many :categories, through: :category_posts
+
 	after_initialize :set_initial_state
 
 	state_machine :published_state, initial: :draught do
