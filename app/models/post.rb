@@ -20,11 +20,16 @@ class Post < ActiveRecord::Base
 		end
 	end
 
-	self.per_page = 3 #TODO change this to 20 after the debug
+	self.per_page = 20
+
+	def self.visible
+		all.where(published_state: 'published')
+	end
 
 	private
 
 	def set_initial_state
 		self.published_state ||= :draught
+		self.publish_date ||= Date.today if self.published_state == 'published'
 	end
 end

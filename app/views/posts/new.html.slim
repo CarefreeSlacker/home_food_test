@@ -1,6 +1,10 @@
 = simple_form_for @post do |f|
 	= f.input :name
 	= f.input :text
-	= f.submit 'Publish'
-	= f.submit 'Save draught'
-	= f.submit 'Delay published'
+	= f.association :categories, input_html: { id: 'dropdown' }, as: :check_boxes
+	= link_to 'Reject', posts_path, class: 'btn btn-danger'
+	= f.submit 'Publish', class: 'btn btn-success'
+	= f.submit 'Save draught', class: 'btn btn-primary'
+	br
+	= f.submit 'Delayed publishing', class: 'btn btn-info'
+	= f.input :publish_date

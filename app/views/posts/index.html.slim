@@ -1,5 +1,8 @@
-- if @posts.any?
-	= render partial: 'post', collection: @posts
-	= will_paginate @posts	
+.container
+	h2
+		| Свежайшие посты.
+	- if @posts.any?
+		= render partial: 'post', collection: @posts
+		= will_paginate @posts	
 
-= link_to 'New post', new_post_path
+	= link_to 'New post', new_post_path

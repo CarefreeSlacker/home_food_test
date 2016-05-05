@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 	def index
-		@posts = Post.paginate(page: params[:page]).where(published_state: :published)
+		@posts = Post.visible.paginate(page: params[:page]).where(published_state: :published)
 	end
 
 	def new
@@ -20,6 +20,6 @@ class PostsController < ApplicationController
 	private
 
 	def post_params
-		params.require(:post).permit(:name, :text)
+		params.require(:post).permit(:name, :text, category_ids: [])
 	end
 end

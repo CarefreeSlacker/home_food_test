@@ -1,6 +1,11 @@
-span.name
+h3
 	= post.decorate.full_post_name
-br	
-span.post_text
+p
+	| Категории:  
+	- if post.categories.any?
+		= post.categories.map(&:name).join(', ')
+	- else
+		| Нет	
+p.lead
 	= post.text
 hr
