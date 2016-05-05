@@ -24,7 +24,7 @@ class PostCreatorService
 		case action
 		when 'Publish' then :published
 		when 'Save draught' then :draught
-		when 'Delay published' then :delayed_publishing
+		when 'Delayed publishing' then :delayed_publishing
 		else :draught
 		end
 	end
