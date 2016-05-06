@@ -6,5 +6,9 @@
 	= f.submit 'Publish', class: 'btn btn-success'
 	= f.submit 'Save draught', class: 'btn btn-primary'
 	br
+	br
 	= f.submit 'Delayed publishing', class: 'btn btn-info'
-	= f.input :publish_time
+	br
+	= f.input :publish_time, start_year: Date.today.year, 
+							 start_month: Date.today.month, 
+							 start_day: Date.today.day
