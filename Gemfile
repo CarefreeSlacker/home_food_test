@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.2.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
@@ -38,12 +39,13 @@ gem "twitter-bootstrap-rails"
 
 gem 'devise'
 
+gem 'recurrent'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'rspec-rails', '~> 3.0'
   gem 'factory_girl_rails', "~> 4.0"
-  gem 'pry'
 end
 
 group :development do

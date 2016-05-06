@@ -26,7 +26,8 @@ class PostDecorator < Draper::Decorator
 
 	def status_class_and_text
 		return { class: '', text: '' } if published_state == 'published'
-		status_text = published_state == 'draught' ? 'Черновик' : "Будет опубликован: #{I18n.l(publish_date, format: '%B %m')}"
+		# I18n.l(publish_date, format: '%B %m')
+		status_text = published_state == 'draught' ? 'Черновик' : "Будет опубликован: #{publish_time}"
 		return { class: published_state, text: status_text }
 	end
 end
