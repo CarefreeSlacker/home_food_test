@@ -1,0 +1,15 @@
+nav.navbar.navbar-default
+  .container-fluid
+    .collapse.navbar-collapse
+      ul.nav.navbar-nav
+        - if current_user
+          li 
+            = link_to 'Posts', posts_path, class: 'btn btn-success'
+          li  
+            = link_to 'Sign out', destroy_user_session_path, class: 'btn btn-danger', method: :delete
+        - else
+          li
+            = link_to 'Sign in', new_user_session_path, class: 'btn btn-success'
+          li  
+	        = link_to 'Sign up', new_user_registration_path, class: 'btn btn-success'
+	

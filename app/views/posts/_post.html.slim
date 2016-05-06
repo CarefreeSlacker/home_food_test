@@ -1,11 +1,9 @@
 h3
-	= post.decorate.full_post_name
+  = post.decorate.full_post_name 
+= post.decorate.status
 p
-	| Категории:  
-	- if post.categories.any?
-		= post.categories.map(&:name).join(', ')
-	- else
-		| Нет	
-p.lead
-	= post.text
+  = post.decorate.categories_list
+blockquote			
+  p.lead
+    = post.decorate.post_text
 hr
