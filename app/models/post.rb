@@ -26,13 +26,13 @@ class Post < ActiveRecord::Base
 
 	def self.visible(user)
 		all.where('posts.published_state = ? OR posts.user_id = ?', 'published', user.id)
-		   .order(publish_date: :desc)
+		   .order(publish_time: :desc)
 	end
 
 	private
 
 	def set_initial_state
 		self.published_state ||= :draught
-		self.publish_date ||= Date.today if self.published_state == 'published'
+		self.publish_time ||= Time.zone.now if self.published_state == 'published'
 	end
 end
